@@ -675,6 +675,249 @@ addClassIf(false, 'on', 'off') </code></pre>
     
 
     
+    <h4 class="name" id="c"><span class="type-signature"></span>c<span class="signature">(styles<span class="signature-attributes">opt</span>, baseClass<span class="signature-attributes">opt</span>, &hellip;restClass)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    A function mix all helpers together, to prevent verbose code like concacClass(gst(styles, 'container'), 'on')
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>styles</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last">object css module of css or scss file</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>baseClass</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+
+            <td class="description last">A classes in styles object separated by space</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>restClass</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">strings that will be included (concatenated) with base class</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="classes.js.html">classes.js</a>, <a href="classes.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const styles = { 
+   container: 'Component_container__WQ2uP', 
+   content: 'Component_content__uP24c' 
+} 
+c(styles, 'container content', 'my-other-class')
+// returns 'Component_container__WQ2uP Component_content__uP24c my-other-class' </code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="concatClass"><span class="type-signature"></span>concatClass<span class="signature">(&hellip;classes)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
@@ -860,7 +1103,7 @@ concatClass('my-component', 'my-second-class', '...')</code></pre>
 
 
 <div class="description">
-    A css module function to get and return classes inside styles object
+    gst is a acronym to getStyleClass - A css module function to get and return classes inside styles object
 </div>
 
 
@@ -1090,13 +1333,13 @@ getStyleClass(styles, 'container content')
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClass">addClass</a></li><li><a href="global.html#addClassIf">addClassIf</a></li><li><a href="global.html#concatClass">concatClass</a></li><li><a href="global.html#gst">gst</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addClass">addClass</a></li><li><a href="global.html#addClassIf">addClassIf</a></li><li><a href="global.html#c">c</a></li><li><a href="global.html#concatClass">concatClass</a></li><li><a href="global.html#gst">gst</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat Jun 25 2022 15:50:18 GMT-0300 (Brasilia Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat Jun 25 2022 16:25:39 GMT-0300 (Brasilia Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
