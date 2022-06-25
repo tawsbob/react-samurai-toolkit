@@ -28,10 +28,10 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
   }
 
   /** add base class and a class if certain condition is true 
-   * @param condition {boolean} [condition=false] - condition to display de class
-   * @param baseClass {string} [baseClass=null] - the base class is always in the return
-   * @param classIf {string} [classIf=null] - the class to be returned if condition is true
-   * @param classElse {string} [classElse=null] - the class to be returned if condition is false
+   * @param {boolean} [condition=false] - condition to display de class
+   * @param {string} [baseClass=null] - the base class is always in the return
+   * @param {string} [classIf=null] - the class to be returned if condition is true
+   * @param {string} [classElse=null] - the class to be returned if condition is false
    * @example
    * // returns 'base-classe on'
    * addClass(true, 'base-class', 'on', 'off')
@@ -52,7 +52,7 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
       : concatClass(defaultClass, ifConditionalIsFalse);
   }
   
-  /** A css module function to get and return classes inside styles object
+  /** gst is a acronym to getStyleClass - A css module function to get and return classes inside styles object
    * @param {object} [styles={}] - The css module object with hashed classes
    * @param {string} [className=''] - The classes separated by space
    * @example
@@ -65,24 +65,7 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
    * // returns 'Component_container__WQ2uP Component_content__uP24c'
    * 
    * @return {string} string of classes
-   */
-  function getStyleClass(styles = {}, className = '') {
-    const all_class = className.split(/\s/);
-  
-    return all_class.reduce((acc, current_class) => {
-      if (styles[current_class]) {
-        if(acc){
-          acc = `${acc} ${styles[current_class]}`;
-        } else {
-          acc = styles[current_class]
-        }
-      }
-  
-      return acc;
-    }, "");
-  }
-  
-  
+   */  
   function gst(styles, type) {
     if (type) {
       const types = type.split(/\s/);
@@ -101,16 +84,19 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
   
     return null;
   }
-  
-  function c(styles, baseClass, ...restClass){
-    return concatClass(getStyleClass(styles, baseClass), ...restClass)
+  /** A function mix all helpers together, to prevent verbose code like concacClass(gst(styles, 'container'), 'on')
+   * @param {object} [styles={}] - object css module of css or scss file
+   * @param {string} [baseClass=''] - A classes in styles object separated by space
+   * @param {...string} - strings that will be included (concatenated) with base class
+  */
+  function c(styles={}, baseClass=null, ...restClass){
+    return concatClass(gst(styles, baseClass), ...restClass)
   }
 
   module.exports = {
     addClassIf,
     concatClass,
     addClass,
-    getStyleClass,
     gst,
     c,
   }
