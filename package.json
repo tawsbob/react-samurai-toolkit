@@ -1,5 +1,23 @@
 {
   "devDependencies": {
+    "jest": "^28.1.1",
     "jsdoc": "^3.6.10"
-  }
+  },
+  "name": "react-samurai-toolkit",
+  "description": "Methods that's helps to work with css modules",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawsbob/react-samurai-toolkit.git"
+  },
+  "author": "Dellean Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tawsbob/react-samurai-toolkit/issues"
+  },
+  "homepage": "https://github.com/tawsbob/react-samurai-toolkit#readme"
 }

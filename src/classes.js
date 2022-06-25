@@ -11,7 +11,7 @@
  * addClassIf(false, 'on', 'off') 
  * @returns {string} ifClass or elseClass
 */
-export function addClassIf(condition = true, ifClass = null, elseClass = null ) {
+function addClassIf(condition = true, ifClass = null, elseClass = null ) {
     return !!condition ? ifClass : elseClass;
   }
   
@@ -23,7 +23,7 @@ export function addClassIf(condition = true, ifClass = null, elseClass = null ) 
    * 
    * @return {string} all the params together as html classes
    */
-  export function concatClass(...classes) {
+  function concatClass(...classes) {
     return classes.join(" ").trim();
   }
 
@@ -41,7 +41,7 @@ export function addClassIf(condition = true, ifClass = null, elseClass = null ) 
    * 
    * @return {string} the base class and if or else class
    */
-  export function addClass(
+  function addClass(
     expression = false,
     defaultClass = null,
     ifConditionalIsTrue = null,
@@ -66,12 +66,16 @@ export function addClassIf(condition = true, ifClass = null, elseClass = null ) 
    * 
    * @return {string} string of classes
    */
-  export function getStyleClass(styles = {}, className = '') {
+  function getStyleClass(styles = {}, className = '') {
     const all_class = className.split(/\s/);
   
     return all_class.reduce((acc, current_class) => {
       if (styles[current_class]) {
-        acc = `${acc} ${styles[current_class]}`;
+        if(acc){
+          acc = `${acc} ${styles[current_class]}`;
+        } else {
+          acc = styles[current_class]
+        }
       }
   
       return acc;
@@ -79,7 +83,7 @@ export function addClassIf(condition = true, ifClass = null, elseClass = null ) 
   }
   
   
-  export function gst(styles, type) {
+  function gst(styles, type) {
     if (type) {
       const types = type.split(/\s/);
   
@@ -98,6 +102,15 @@ export function addClassIf(condition = true, ifClass = null, elseClass = null ) 
     return null;
   }
   
-  export function c(styles, baseClass, ...restClass){
+  function c(styles, baseClass, ...restClass){
     return concatClass(getStyleClass(styles, baseClass), ...restClass)
+  }
+
+  module.exports = {
+    addClassIf,
+    concatClass,
+    addClass,
+    getStyleClass,
+    gst,
+    c,
   }
