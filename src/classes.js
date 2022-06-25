@@ -88,6 +88,14 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
    * @param {object} [styles={}] - object css module of css or scss file
    * @param {string} [baseClass=''] - A classes in styles object separated by space
    * @param {...string} - strings that will be included (concatenated) with base class
+   * @example
+   * 
+   * const styles = { 
+   *    container: 'Component_container__WQ2uP', 
+   *    content: 'Component_content__uP24c' 
+   * } 
+   * c(styles, 'container content', 'my-other-class')
+   * // returns 'Component_container__WQ2uP Component_content__uP24c my-other-class' 
   */
   function c(styles={}, baseClass=null, ...restClass){
     return concatClass(gst(styles, baseClass), ...restClass)

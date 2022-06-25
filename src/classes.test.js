@@ -1,4 +1,4 @@
-const { addClassIf, concatClass, addClass, gst } = require('./classes');
+const { addClassIf, concatClass, addClass, gst, c } = require('./classes');
 
 test('add class if condition is true', () => {
     const classIf = 'some-class';
@@ -34,4 +34,13 @@ test('get classes from styles', () => {
         content: 'Component_content__uP24c' 
      }  
     expect(gst(styles, 'container content')).toBe(`${styles.container} ${styles.content}`);
+});
+
+test('test c function', () => {
+    const styles = { 
+       container: 'Component_container__WQ2uP', 
+       content: 'Component_content__uP24c' 
+    }
+    const aditionalClass = 'test'  
+   expect(c(styles, 'container content', aditionalClass)).toBe(`${styles.container} ${styles.content} ${aditionalClass}`);
 });
