@@ -1,0 +1,15 @@
+{
+  "structure": [
+    "./src/components",
+    "./src/components/index.js",
+    "./src/components/_providers",
+    "./src/components/_providers/index.js",
+    "./src/components/_ui",
+    "./src/components/behavior",
+    "./src/components/hooks",
+    "./src/components/hooks/index.js",
+    "./src/constants",
+    "./src/utils/index.js"
+  ],
+  "templates": "./templates.js"
+}

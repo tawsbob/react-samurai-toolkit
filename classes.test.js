@@ -1,4 +1,4 @@
-const { addClassIf, concatClass, addClass, gst, c } = require('./classes');
+const { addClassIf, concatClass, toggleClass, gst, c } = require('./classes');
 
 test('add class if condition is true', () => {
     const classIf = 'some-class';
@@ -16,16 +16,16 @@ test('concat class with concatClass', () => {
     expect(concatClass(firstClass, secondClass)).toBe(`${firstClass} ${secondClass}`);
 });
 
-test('add addClass if condition is true', () => {
+test('add toggleClass if condition is true', () => {
     const base = 'first-class';
     const secondClass = 'second-class'
-    expect(addClass(true, base, secondClass)).toBe(`${base} ${secondClass}`);
+    expect(toggleClass(true, base, secondClass)).toBe(`${base} ${secondClass}`);
 });
 
-test('add addClass if condition is false', () => {
+test('add toggleClass if condition is false', () => {
     const base = 'first-class';
     const secondClass = 'second-class'
-    expect(addClass(false, base, null, secondClass)).toBe(`${base} ${secondClass}`);
+    expect(toggleClass(false, base, null, secondClass)).toBe(`${base} ${secondClass}`);
 });
 
 test('get classes from styles', () => {

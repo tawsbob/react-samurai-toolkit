@@ -34,14 +34,14 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
    * @param {string} [classElse=null] - the class to be returned if condition is false
    * @example
    * // returns 'base-classe on'
-   * addClass(true, 'base-class', 'on', 'off')
+   * toggleClass(true, 'base-class', 'on', 'off')
    * @example
    * // returns 'base-class off'
-   * addClass(false, 'base-class', 'on', 'off')
+   * toggleClass(false, 'base-class', 'on', 'off')
    * 
    * @return {string} the base class and if or else class
    */
-  function addClass(
+  function toggleClass(
     expression = false,
     defaultClass = null,
     ifConditionalIsTrue = null,
@@ -104,7 +104,7 @@ function addClassIf(condition = true, ifClass = null, elseClass = null ) {
   module.exports = {
     addClassIf,
     concatClass,
-    addClass,
+    toggleClass,
     gst,
     c,
   }
