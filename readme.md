@@ -131,3 +131,116 @@ const styles = {
 } 
 c(styles, 'container content', 'my-other-class')
 // returns 'Component_container__WQ2uP Component_content__uP24c my-other-class' 
+
+## Utils
+
+<dl>
+<dt><a href="#isServer">isServer()</a> ⇒ <code>boolean</code></dt>
+<dd><p>help method to detect if code runs on server</p>
+</dd>
+<dt><a href="#isClient">isClient()</a> ⇒ <code>boolean</code></dt>
+<dd><p>help method to detect if code runs on client</p>
+</dd>
+<dt><a href="#getRefValue">getRefValue(ref)</a> ⇒ <code>any</code></dt>
+<dd><p>get input value from react ref.</p>
+</dd>
+<dt><a href="#renderIf">renderIf([condition], [ifComponent], [elseComponent])</a> ⇒ <code>ReactComponent</code></dt>
+<dd><p>method to render conditionally a react component.</p>
+</dd>
+<dt><a href="#redirect404">redirect404([opts])</a></dt>
+<dd><p>return this method on getServerSideProps to 404 redirect</p>
+</dd>
+</dl>
+
+<a name="isServer"></a>
+
+## isServer() ⇒ <code>boolean</code>
+help method to detect if code runs on server
+
+**Kind**: global function  
+**Example**  
+```js
+// returns true if is in server
+isServer()
+```
+<a name="isClient"></a>
+
+## isClient() ⇒ <code>boolean</code>
+help method to detect if code runs on client
+
+**Kind**: global function  
+**Example**  
+```js
+// returns true if is in server
+isClient()
+```
+<a name="getRefValue"></a>
+
+## getRefValue(ref) ⇒ <code>any</code>
+get input value from react ref.
+
+**Kind**: global function  
+**Returns**: <code>any</code> - Current value of input  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ref | <code>object</code> | the ref of element |
+
+**Example**  
+```js
+getRefValue(inputRef)
+```
+<a name="renderIf"></a>
+
+## renderIf([condition], [ifComponent], [elseComponent]) ⇒ <code>ReactComponent</code>
+method to render conditionally a react component.
+
+**Kind**: global function  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [condition] | <code>boolean</code> | <code>true</code> | condition to display the component |
+| [ifComponent] | <code>string</code> | <code>null</code> | component to render if condition is true |
+| [elseComponent] | <code>string</code> | <code>null</code> | component to render if condition is false |
+
+**Example**  
+```js
+const loading = true
+renderIf(loading, (<span>loading</span>)) // return <span>loading</span>
+```
+**Example**  
+```js
+const loading = false
+renderIf(loading, (<span>loading</span>), (<span>loaded</span>)) // <span>loaded</span>
+```
+<a name="redirect404"></a>
+
+## redirect404([opts])
+return this method on getServerSideProps to 404 redirect
+
+**Kind**: global function  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [opts] | <code>object</code> | <code></code> | object to merge with redirect object |
+
+**Example**  
+```js
+export async function getServerSideProps(res){
+
+    try {
+
+        const { data } = await SomePromise();
+
+        if(data && data.length){
+            return {
+                props: {
+                    courses: data
+                }
+            }
+        }
+
+    } catch(e){
+        return redirect404()
+    }
+}

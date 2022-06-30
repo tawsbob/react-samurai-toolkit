@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "docs": "jsdoc2md classes.js",
+    "docs": "jsdoc2md utils.js",
     "test": "jest"
   },
   "repository": {
