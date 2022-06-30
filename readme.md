@@ -131,6 +131,7 @@ const styles = {
 } 
 c(styles, 'container content', 'my-other-class')
 // returns 'Component_container__WQ2uP Component_content__uP24c my-other-class' 
+```
 
 ## Utils
 
@@ -244,3 +245,4 @@ export async function getServerSideProps(res){
         return redirect404()
     }
 }
+```
