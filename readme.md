@@ -1,3 +1,5 @@
+![logo-bg](https://user-images.githubusercontent.com/8184351/177008426-14123861-0e87-40f9-a045-c03cac423896.svg)
+
 # react-samurai-toolkit
 Is a bunch of helpers to work with react and nextjs
 
