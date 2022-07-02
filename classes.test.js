@@ -1,4 +1,4 @@
-const { addClassIf, concatClass, toggleClass, gst, c } = require('./classes');
+import { addClassIf, concatClass, toggleClass, gst, c } from './classes';
 
 test('add class if condition is true', () => {
     const classIf = 'some-class';

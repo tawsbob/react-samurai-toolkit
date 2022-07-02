@@ -2,12 +2,15 @@
   "devDependencies": {
     "jest": "^28.1.1",
     "jsdoc": "^3.6.10",
-    "jsdoc-to-markdown": "^7.1.1"
+    "jsdoc-to-markdown": "^7.1.1",
+    "change-case": "^4.1.2",
+    "inquirer": "^9.0.0"
   },
   "name": "react-samurai-toolkit",
   "description": "Methods that's helps to work with css modules",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "docs": "jsdoc2md *.js",
     "test": "jest"
@@ -21,9 +24,5 @@
   "bugs": {
     "url": "https://github.com/tawsbob/react-samurai-toolkit/issues"
   },
-  "homepage": "https://github.com/tawsbob/react-samurai-toolkit#readme",
-  "dependencies": {
-    "change-case": "^4.1.2",
-    "inquirer": "^9.0.0"
-  }
+  "homepage": "https://github.com/tawsbob/react-samurai-toolkit#readme"
 }

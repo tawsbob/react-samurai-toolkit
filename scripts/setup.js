@@ -1,9 +1,5 @@
-const configs   = require('./config.json');
-const fs        = require("fs");
-
-const args = process.argv.slice(2);
-
-console.log(__dirname)
+import configs   from './config.json';
+import fs        from "fs";
 
 async function createFolder(folderPath){
     try {

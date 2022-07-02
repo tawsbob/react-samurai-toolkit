@@ -1,7 +1,7 @@
-const utils = require('./utils');
-const classes = require('./classes');
+import utils from './utils';
+import classes from './classes';
 
-module.exports = {
+export default {
     utils,
     classes,
 }

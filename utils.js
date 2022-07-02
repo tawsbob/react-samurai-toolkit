@@ -4,7 +4,7 @@
  * isServer()
  * @returns {boolean}
 */
-function isServer(){
+export function isServer(){
     return (typeof window === 'undefined')
 }
 
@@ -14,7 +14,7 @@ function isServer(){
  * isClient()
  * @returns {boolean}
 */
-function isClient(){
+export function isClient(){
     return !isServer()
   }
 
@@ -24,7 +24,7 @@ function isClient(){
  * getRefValue(inputRef)
  * @returns {any} Current value of input
 */
-function getRefValue(ref) {
+export function getRefValue(ref) {
     if (typeof ref?.current?.value === "boolean") {
       return ref?.current?.value;
     }
@@ -43,7 +43,7 @@ function getRefValue(ref) {
  * renderIf(loading, (<span>loading</span>), (<span>loaded</span>)) // <span>loaded</span>
  * @returns {ReactComponent}
 */
-function renderIf(condition = true, ifComponent = null, elseComponent = null) {
+export function renderIf(condition = true, ifComponent = null, elseComponent = null) {
     return condition ? ifComponent : elseComponent;
 }
 
@@ -62,7 +62,7 @@ export async function getServerSideProps(res){
     }
 }
  */
-function redirect404(redirect = {
+export function redirect404(redirect = {
     permanent: false,
     destination: "/not-found",
 }){
@@ -80,7 +80,7 @@ function redirect404(redirect = {
  * 
  *@returns {Object} - new Intl.NumberFormat(lang, { style, currency })
  */
-function moneyFormatter(lang = 'pt-BR', style='currency', currency='BRL'){
+export function moneyFormatter(lang = 'pt-BR', style='currency', currency='BRL'){
     return new Intl.NumberFormat(lang, { style, currency });
 }
 
@@ -89,7 +89,7 @@ function moneyFormatter(lang = 'pt-BR', style='currency', currency='BRL'){
  * isProduction() // true or false
  *@returns {boolean}
 */
-function isProduction(){
+export function isProduction(){
     return process.env.NODE_ENV.toLocaleLowerCase() === 'production'
 }
 
@@ -112,7 +112,7 @@ export async function getServerSideProps(res){
     }
 }
  */
-function cacheServeSideProps (res, maxage='900', revalidate='910'){
+export function cacheServeSideProps (res, maxage='900', revalidate='910'){
     if(isProduction()){
       if(res){
         res.setHeader(
@@ -123,7 +123,7 @@ function cacheServeSideProps (res, maxage='900', revalidate='910'){
     }
   }
 
-  module.exports = {
+  export default {
     isServer,
     isClient,
     getRefValue,

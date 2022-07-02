@@ -1,4 +1,4 @@
-function component(name) {
+export function component(name) {
     return `
 import PropTypes from 'prop-types';
 import { c } from '@class';
@@ -19,15 +19,15 @@ ${name}.defaultProps = {
 export default ${name}`;
   }
   
-  function scss() {
+  export function scss() {
     return `.container {} `;
   }
   
-  function include(component_name, folder_name) {
+  export function include(component_name, folder_name) {
     return `\n export { default as ${component_name} } from './${folder_name}/index.js';`;
   }
   
-  function page() {
+  export function page() {
     return `import { Header, Page } from '@components';
       //import {  } from '@utils';
       
@@ -38,11 +38,11 @@ export default ${name}`;
             <main>
               <Header />
             </main>
-          </Page>
+          </Page>s
         );
       }`;
   }
-  module.exports = {
+  export default {
     component,
     include,
     scss,

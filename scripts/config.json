@@ -1,5 +1,6 @@
 {
   "structure": [
+    "./src",
     "./src/components",
     "./src/components/index.js",
     "./src/components/_providers",
@@ -9,6 +10,7 @@
     "./src/components/hooks",
     "./src/components/hooks/index.js",
     "./src/constants",
+    "./src/utils",
     "./src/utils/index.js"
   ],
   "templates": "./templates.js"
