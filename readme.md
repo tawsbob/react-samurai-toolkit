@@ -1,7 +1,3 @@
-## Classes
-
-Methods that's helps to work with css modules
-
 ## Functions
 
 <dl>
@@ -19,6 +15,30 @@ Methods that's helps to work with css modules
 </dd>
 <dt><a href="#c">c([styles], [baseClass], ...restClass)</a></dt>
 <dd><p>A function mix all helpers together, to prevent verbose code like concacClass(gst(styles, &#39;container&#39;), &#39;on&#39;)</p>
+</dd>
+<dt><a href="#isServer">isServer()</a> ⇒ <code>boolean</code></dt>
+<dd><p>help method to detect if code runs on server</p>
+</dd>
+<dt><a href="#isClient">isClient()</a> ⇒ <code>boolean</code></dt>
+<dd><p>help method to detect if code runs on client</p>
+</dd>
+<dt><a href="#getRefValue">getRefValue(ref)</a> ⇒ <code>any</code></dt>
+<dd><p>get input value from react ref.</p>
+</dd>
+<dt><a href="#renderIf">renderIf([condition], [ifComponent], [elseComponent])</a> ⇒ <code>ReactComponent</code></dt>
+<dd><p>method to render conditionally a react component.</p>
+</dd>
+<dt><a href="#redirect404">redirect404([redirect])</a></dt>
+<dd><p>return this method on getServerSideProps to 404 redirect</p>
+</dd>
+<dt><a href="#moneyFormatter">moneyFormatter([lang], [style], [currency])</a> ⇒ <code>Object</code></dt>
+<dd><p>Method to format number as money / currency</p>
+</dd>
+<dt><a href="#isProduction">isProduction()</a> ⇒ <code>boolean</code></dt>
+<dd><p>check if  process.env.NODE_ENV === &#39;production&#39;</p>
+</dd>
+<dt><a href="#cacheServeSideProps">cacheServeSideProps([res], [maxage], [revalidate])</a></dt>
+<dd><p>cache server side props (Only production env)</p>
 </dd>
 </dl>
 
@@ -132,27 +152,6 @@ const styles = {
 c(styles, 'container content', 'my-other-class')
 // returns 'Component_container__WQ2uP Component_content__uP24c my-other-class' 
 ```
-
-## Utils
-
-<dl>
-<dt><a href="#isServer">isServer()</a> ⇒ <code>boolean</code></dt>
-<dd><p>help method to detect if code runs on server</p>
-</dd>
-<dt><a href="#isClient">isClient()</a> ⇒ <code>boolean</code></dt>
-<dd><p>help method to detect if code runs on client</p>
-</dd>
-<dt><a href="#getRefValue">getRefValue(ref)</a> ⇒ <code>any</code></dt>
-<dd><p>get input value from react ref.</p>
-</dd>
-<dt><a href="#renderIf">renderIf([condition], [ifComponent], [elseComponent])</a> ⇒ <code>ReactComponent</code></dt>
-<dd><p>method to render conditionally a react component.</p>
-</dd>
-<dt><a href="#redirect404">redirect404([opts])</a></dt>
-<dd><p>return this method on getServerSideProps to 404 redirect</p>
-</dd>
-</dl>
-
 <a name="isServer"></a>
 
 ## isServer() ⇒ <code>boolean</code>
@@ -216,14 +215,14 @@ renderIf(loading, (<span>loading</span>), (<span>loaded</span>)) // <span>loaded
 ```
 <a name="redirect404"></a>
 
-## redirect404([opts])
+## redirect404([redirect])
 return this method on getServerSideProps to 404 redirect
 
 **Kind**: global function  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [opts] | <code>object</code> | <code></code> | object to merge with redirect object |
+| [redirect] | <code>object</code> | <code></code> | redirect object |
 
 **Example**  
 ```js
@@ -231,15 +230,64 @@ export async function getServerSideProps(res){
 
     try {
 
-        const { data } = await SomePromise();
+        return await SomePromise();
 
-        if(data && data.length){
-            return {
-                props: {
-                    courses: data
-                }
-            }
-        }
+    } catch(e){
+        return redirect404()
+    }
+}
+```
+<a name="moneyFormatter"></a>
+
+## moneyFormatter([lang], [style], [currency]) ⇒ <code>Object</code>
+Method to format number as money / currency
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - - new Intl.NumberFormat(lang, { style, currency })  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [lang] | <code>string</code> | <code>&quot;&#x27;pt-BR&#x27;&quot;</code> | language |
+| [style] | <code>string</code> | <code>&quot;&#x27;currency&#x27;&quot;</code> | style |
+| [currency] | <code>string</code> | <code>&quot;&#x27;BRL&#x27;&quot;</code> | currency |
+
+**Example**  
+```js
+const Formarter = moneyFormatter();
+Formarter.format(10) // 'R$ 10,00'
+```
+<a name="isProduction"></a>
+
+## isProduction() ⇒ <code>boolean</code>
+check if  process.env.NODE_ENV === 'production'
+
+**Kind**: global function  
+**Example**  
+```js
+isProduction() // true or false
+```
+<a name="cacheServeSideProps"></a>
+
+## cacheServeSideProps([res], [maxage], [revalidate])
+cache server side props (Only production env)
+
+**Kind**: global function  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [res] | <code>object</code> |  | response object from nextjs |
+| [maxage] | <code>string</code> | <code>&quot;&#x27;900&#x27;&quot;</code> | maxage param |
+| [revalidate] | <code>string</code> | <code>&quot;&#x27;910&#x27;&quot;</code> | revalidate param |
+
+**Example**  
+```js
+export async function getServerSideProps(res){
+
+    //will cache this request
+    cacheServeSideProps(res);
+
+    try {
+        return await SomePromise();
 
     } catch(e){
         return redirect404()
