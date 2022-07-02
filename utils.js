@@ -70,9 +70,9 @@ function redirect404(redirect = {
 }
 
 /** Method to format number as money / currency 
- * @param {string} [lang='pt-BR'] - language
- * @param {string} [style='currency'] - style
- * @param {string} [currency='BRL'] - currency
+ * @param {string} [lang=pt-BR] - language
+ * @param {string} [style=currency] - style
+ * @param {string} [currency=BRL] - currency
  * @example
  * 
  * const Formarter = moneyFormatter();
@@ -95,8 +95,8 @@ function isProduction(){
 
 /** cache server side props (Only production env) 
  * @param {object} [res] - response object from nextjs
- * @param {string} [maxage='900'] - maxage param
- * @param {string} [revalidate='910'] - revalidate param
+ * @param {string} [maxage=900] - maxage param
+ * @param {string} [revalidate=910] - revalidate param
  * @example
  * 
 export async function getServerSideProps(res){

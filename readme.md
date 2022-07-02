@@ -1,4 +1,4 @@
-## Functions
+## react-samurai-toolkit/classes
 
 <dl>
 <dt><a href="#addClassIf">addClassIf([condition], [ifClass], [elseClass])</a> ⇒ <code>string</code></dt>
@@ -16,6 +16,10 @@
 <dt><a href="#c">c([styles], [baseClass], ...restClass)</a></dt>
 <dd><p>A function mix all helpers together, to prevent verbose code like concacClass(gst(styles, &#39;container&#39;), &#39;on&#39;)</p>
 </dd>
+</dl>
+
+## react-samurai-toolkit/utils
+<dl>
 <dt><a href="#isServer">isServer()</a> ⇒ <code>boolean</code></dt>
 <dd><p>help method to detect if code runs on server</p>
 </dd>
@@ -41,7 +45,6 @@
 <dd><p>cache server side props (Only production env)</p>
 </dd>
 </dl>
-
 <a name="addClassIf"></a>
 
 ## addClassIf([condition], [ifClass], [elseClass]) ⇒ <code>string</code>
@@ -247,9 +250,9 @@ Method to format number as money / currency
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [lang] | <code>string</code> | <code>&quot;&#x27;pt-BR&#x27;&quot;</code> | language |
-| [style] | <code>string</code> | <code>&quot;&#x27;currency&#x27;&quot;</code> | style |
-| [currency] | <code>string</code> | <code>&quot;&#x27;BRL&#x27;&quot;</code> | currency |
+| [lang] | <code>string</code> | <code>&quot;pt-BR&quot;</code> | language |
+| [style] | <code>string</code> | <code>&quot;currency&quot;</code> | style |
+| [currency] | <code>string</code> | <code>&quot;BRL&quot;</code> | currency |
 
 **Example**  
 ```js
@@ -276,8 +279,8 @@ cache server side props (Only production env)
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | [res] | <code>object</code> |  | response object from nextjs |
-| [maxage] | <code>string</code> | <code>&quot;&#x27;900&#x27;&quot;</code> | maxage param |
-| [revalidate] | <code>string</code> | <code>&quot;&#x27;910&#x27;&quot;</code> | revalidate param |
+| [maxage] | <code>string</code> | <code>900</code> | maxage param |
+| [revalidate] | <code>string</code> | <code>910</code> | revalidate param |
 
 **Example**  
 ```js
